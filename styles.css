@@ -1,12 +1,12 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
 *{
     padding: 0;
     margin: 0;
     list-style: none;
     text-decoration: none;
     font-family: 'Fredoka One', cursive;
-    background-color: var(--background-color);
-
-
+    /* background-color: var(--background-color); */
 }
 
 :root{
@@ -14,34 +14,31 @@
     --secondary-color: #903A2D;
     --background-color: #FFC4C0;
 }
-/* nav{
-    position: relative;
-}
-.nav-ul{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+nav{
+    position: absolute;
+    left: 3%;
+    z-index: 3;
 }
 
 .nav-ul li{
-    padding: 15px;
+    padding: 25px;
 }
 
 .nav-ul a{
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
 }
 .nav-ul h3{
     font-size: 30px;
     font-weight: 100;
 
-} */
+}
 
 .banner{
+    position: relative;
     height: 100vh;
     width: 100%;
     text-align: center;
     overflow: hidden;
-    position: relative;
 }
 
 .banner .slider{
@@ -53,14 +50,15 @@
     transform-style: preserve-3d;
     transform: perspective(800px);
     animation: autorotate 30s linear infinite;
+    z-index: 2;
 }
 
 @keyframes autorotate {
     from{
-        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+        transform: perspective(1000px) rotateX(-26deg) rotateY(0deg);
     }
     to{
-        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+        transform: perspective(1000px) rotateX(-26deg) rotateY(360deg);
         
     }
 }
@@ -75,8 +73,73 @@
 }
 
 .banner .slider .item img{
+    
     /* background-image: url(./img/Wood-Texture-Graphics-27181890-1-1-580x387.jpg); */
     border-radius: 90px;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.banner .content h1{
+    font-family: 'ICA Rubrik';
+    font-size: 10rem;
+    line-height: 1rem;
+    color: var(--secondary-color);
+    position: relative;
+}
+
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px var(--secondary-color);
+    color: transparent;
+}
+
+.banner .content a{
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: -50px;
+    color: var(--secondary-color);
+    border: 5px solid var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+    z-index: 3;
+}
+
+.banner .content a:hover{
+    color: white;
+    background-color: var(--secondary-color);
+}
+
+.banner .content .model{
+    background-image: url(./img/chef-1.png);
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 105%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
 }
